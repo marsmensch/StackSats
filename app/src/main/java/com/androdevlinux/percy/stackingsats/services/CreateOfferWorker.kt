@@ -118,7 +118,6 @@ class CreateOfferWorker(context: Context, workerParams: WorkerParameters) :
         createOffer.exchangePriceDeviation = "0"
         createOffer.exchangePriceUnit = "%"
         createOffer.countryCode = "IN"
-        /*createOffer.price = appPreferenceManager.inrAmount!!.toFloat()*/
         createOffer.balance = appPreferenceManager.inrAmount!!.toLong()
         createOffer.currencyCode = "INR"
         createOffer.minAmount = appPreferenceManager.inrAmount!!.toFloat()
@@ -193,7 +192,7 @@ class CreateOfferWorker(context: Context, workerParams: WorkerParameters) :
                     )
                     CoroutineScope(Dispatchers.Main).launch {
                         Log.d("onResponse", errorBody.errorCode!!)
-                        execute()
+                        Toasty.error(applicationContext,  errorBody.status!!, Toast.LENGTH_SHORT, true).show()
                     }
 
                 }
