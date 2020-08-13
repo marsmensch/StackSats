@@ -23,7 +23,7 @@ class AppPreferenceManager(private val context: Context) {
     }
 
     val inrAmount: String?
-        get() = prefs.getString(context.resources.getString(R.string.inr_amount_preference), "")
+        get() = prefs.getString(context.resources.getString(R.string.inr_amount_preference), "1000")
 
     fun setInrAmount(value: String?) {
         prefs.edit().putString(context.resources.getString(R.string.inr_amount_preference), value!!).apply()

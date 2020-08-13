@@ -28,4 +28,10 @@
     <color name="color_table_title_background_bid_amount">#696969</color>
     <color name="color_table_title_background_ask_amount">#696969</color>
     <color name="color_table_title_text">@android:color/white</color>
+
+    <color name="colorBlueLight">#0880b4</color>
+    <color name="colorBlueDark">#1b2b43</color>
+
+    <color name="colorVioletLight">#492376</color>
+    <color name="colorVioletDark">#240e3b</color>
 </resources>

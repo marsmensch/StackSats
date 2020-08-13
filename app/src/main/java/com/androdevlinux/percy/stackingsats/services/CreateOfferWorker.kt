@@ -132,7 +132,7 @@ class CreateOfferWorker(context: Context, workerParams: WorkerParameters) :
         createOffer.title = appPreferenceManager.offerTitle
         createOffer.description = appPreferenceManager.offerDescription
         createOffer.paymentMethodIds =
-            arrayListOf(appPreferenceManager.onlinePaymentMethodId!!.toLong())
+            arrayListOf(70)
         createOfferBodyBean.offer = createOffer
 
         val offer = service!!.createOffer(
@@ -178,7 +178,7 @@ class CreateOfferWorker(context: Context, workerParams: WorkerParameters) :
                             appPreferenceManager.setNextDateForOfferCreating(ld.toString())
                         }
                         NotificationHelper(applicationContext).createNotification(
-                            "New BTC Offer " + responseList.offer!!.price + "\u20B9",
+                            "New BTC Offer at " + responseList.offer!!.price + "$",
                             "Created at " + responseList.offer!!.createdAt!!.getDateWithServerTimeStamp(),
                             "",
                             "stacking_offer"
