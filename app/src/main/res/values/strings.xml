@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Stacking Sats</string>
+    <string name="title_home">Home</string>
+    <string name="title_offer_setup">Offer Setup</string>
+    <string name="title_settings">Settings</string>
+    <string name="amount_in_inr">Amount In INR</string>
+    <string name="single_contract_limit">Single contract limit</string>
+    <string name="save_changes">Save changes</string>
+    <string name="min_with_colon">Min :</string>
+    <string name="max_with_colon">Max :</string>
+    <string name="optional_settings">Optional settings</string>
+    <string name="activate_the_offer">Activate the offer</string>
+    <string name="private_offer">Private offer</string>
+    <string name="for_experienced_user_only">For experienced users only</string>
+    <string name="payment_methods">Payment methods</string>
+    <string name="authorization_token_preference">authorization_token_preference</string>
+    <string name="authorization_details">Authorization Details</string>
+    <string name="token">Token</string>
+    <string name="inr_amount_preference">inr_amount_preference</string>
+    <string name="online_payment_details">Online Payment Details</string>
+    <string name="online_payment_method_id_preference">online_payment_method_id_preference</string>
+    <string name="current_offer_details">Current Offer Details</string>
+    <string name="offer_details_optional">Offer Details (Optional)</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="offer_title_preference">offer_title_preference</string>
+    <string name="offer_description_preference">offer_description_preference</string>
+    <string name="weekly_or_monthly_preference">weekly_or_monthly_preference</string>
+    <string name="next_date_for_offer_creating_preference">next_date_for_offer_creating_preference</string>
+    <string name="create_your_first_offer">Create your first offer :)</string>
+    <string name="last_offer_date_preference">last_offer_date_preference</string>
+    <string name="next_offer_creating_date">Next offer creating date :</string>
+    <string name="version">"Version : "</string>
+    <string name="nav_header_desc">app logo</string>
+    <string name="title_buy">Buy Settings</string>
+    <string name="title_api_key">API Key</string>
+    <string name="title_wallet">Wallet</string>
+    <string name="title_payment_methods">Payment Methods</string>
+    <string name="bitcoin_address">Bitcoin Address</string>
+    <string-array name="weeklyOrMonthly">
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+    <string-array name="onlinePaymentMethods">
+        <item>Google Pay</item>
+        <item>Paytm</item>
+        <item>UPI Payments</item>
+    </string-array>
+</resources>

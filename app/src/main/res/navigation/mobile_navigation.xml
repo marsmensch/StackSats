@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_buy">
+
+    <fragment
+        android:id="@+id/nav_buy"
+        android:name="com.androdevlinux.percy.stackingsats.ui.buySettings.BuySettingsFragment"
+        android:label="@string/title_buy"
+        tools:layout="@layout/fragment_buy_settings" />
+
+    <fragment
+        android:id="@+id/nav_api_key"
+        android:name="com.androdevlinux.percy.stackingsats.ui.apiKey.ApiKeyFragment"
+        android:label="@string/title_api_key"
+        tools:layout="@layout/fragment_api_key" />
+
+    <fragment
+        android:id="@+id/nav_wallet"
+        android:name="com.androdevlinux.percy.stackingsats.ui.wallet.WalletFragment"
+        android:label="@string/title_wallet"
+        tools:layout="@layout/fragment_wallet" />
+
+    <fragment
+        android:id="@+id/nav_payment_methods"
+        android:name="com.androdevlinux.percy.stackingsats.ui.paymentMethods.PaymentMethodsFragment"
+        android:label="@string/title_payment_methods"
+        tools:layout="@layout/fragment_payment_methods" />
+</navigation>

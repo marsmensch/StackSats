@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_buy"
+            android:icon="@drawable/buy_settings_icon"
+            android:title="@string/title_buy" />
+
+        <item
+            android:id="@+id/nav_api_key"
+            android:icon="@drawable/api_key_icon"
+            android:title="@string/title_api_key" />
+
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/wallet_icon"
+            android:title="@string/title_wallet" />
+
+        <item
+            android:id="@+id/nav_payment_methods"
+            android:icon="@drawable/payment_method_icon"
+            android:title="@string/title_payment_methods" />
+    </group>
+</menu>
