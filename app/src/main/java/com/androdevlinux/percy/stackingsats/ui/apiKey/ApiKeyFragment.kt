@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.androdevlinux.percy.stackingsats.R
 import com.androdevlinux.percy.stackingsats.base.BaseFragment
+import com.ncorti.slidetoact.SlideToActView
 import kotlinx.android.synthetic.main.fragment_api_key.*
 
 class ApiKeyFragment : BaseFragment() {
@@ -35,12 +36,15 @@ class ApiKeyFragment : BaseFragment() {
             edtToken.setText(it)
         })
 
-        btnSaveChangesSettings.setOnClickListener {
-            if (edtToken.text.toString().isNotEmpty()) {
-                apiKeyViewModel.appPreferenceManager.setAuthorizationToken(edtToken.text.toString())
-                showToastySuccess("Changes Updated In System")
-            } else {
-                showToastyError("Token is empty")
+        btnSaveChanges.onSlideCompleteListener = object : SlideToActView.OnSlideCompleteListener {
+            override fun onSlideComplete(view: SlideToActView) {
+                if (edtToken.text.toString().isNotEmpty()) {
+                    apiKeyViewModel.appPreferenceManager.setAuthorizationToken(edtToken.text.toString())
+                    showToastySuccess("Changes Updated In System")
+                } else {
+                    showToastyError("Token is empty")
+                }
+                btnSaveChanges.resetSlider()
             }
         }
     }

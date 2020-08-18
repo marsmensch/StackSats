@@ -181,7 +181,7 @@ class CreateOfferWorker(context: Context, workerParams: WorkerParameters) :
                             "New BTC Offer at " + responseList.offer!!.price + "$",
                             "Created at " + responseList.offer!!.createdAt!!.getDateWithServerTimeStamp(),
                             "",
-                            "stacking_offer"
+                            "stack_offer"
                         )
                         Log.d("onResponse", responseList.status!!)
                     }

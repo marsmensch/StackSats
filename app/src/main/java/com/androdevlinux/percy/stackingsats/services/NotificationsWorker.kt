@@ -9,6 +9,7 @@ import com.androdevlinux.percy.stackingsats.api.HodlHodlApiEndPoints
 import com.androdevlinux.percy.stackingsats.pojo.notifications.NotificationsResponseBean
 import com.androdevlinux.percy.stackingsats.utils.AppPreferenceManager
 import com.androdevlinux.percy.stackingsats.utils.NotificationHelper
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 
@@ -31,13 +32,39 @@ class NotificationsWorker(context: Context, workerParams: WorkerParameters) :
             ) {
                 if (response.code() == 200) {
                     for (notification in response.body()!!.notifications!!) {
+                        var body = ""
+                        if (null == notification.body) {
+                            body = ""
+                        }
                         NotificationHelper(applicationContext).createNotification(
                             notification.title!!,
-                            notification.body!!,
+                            body,
                             "",
-                            "stacking_notification"
+                            "stack_notification"
                         )
                         Log.d("onResponse", notification.link!!)
+
+                        if (notification.title!!.matches("New contract to buy.*".toRegex())) {
+                            val contractId = notification.link!!.replace("https://hhtestnet.com/contracts/", "")
+                            val confirm = service.confirmEscrowValidity(contractId, "Bearer " + appPreferenceManager.authorizationToken)
+                            confirm.enqueue(object : retrofit2.Callback<ResponseBody?> {
+                                override fun onResponse(
+                                    call: Call<ResponseBody?>,
+                                    response: Response<ResponseBody?>
+                                ) {
+                                    if (response.code() == 200) {
+
+                                    }
+                                }
+
+                                override fun onFailure(
+                                    call: Call<ResponseBody?>,
+                                    t: Throwable
+                                ) {
+                                    t.printStackTrace()
+                                }
+                            })
+                        }
                     }
                 }
             }

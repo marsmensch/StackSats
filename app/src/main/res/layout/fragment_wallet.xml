@@ -65,17 +65,12 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSaveChangesSettings"
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/btnSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:backgroundTint="@color/colorAccent"
-        android:minHeight="?android:attr/listPreferredItemHeight"
-        android:text="@string/save_changes"
         android:textSize="15sp"
-        android:textStyle="bold"
-        tools:cornerRadius="5dp"
-        tools:strokeColor="@color/colorOrange" />
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        card_view:text="@string/save_changes" />
 </androidx.appcompat.widget.LinearLayoutCompat>

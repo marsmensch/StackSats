@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.androdevlinux.percy.stackingsats.R
 import com.androdevlinux.percy.stackingsats.base.BaseFragment
 import com.androdevlinux.percy.stackingsats.utils.AppPreferenceManager
+import com.ncorti.slidetoact.SlideToActView
 import kotlinx.android.synthetic.main.fragment_wallet.*
 
 class WalletFragment : BaseFragment() {
@@ -30,7 +31,10 @@ class WalletFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        btnSaveChangesSettings.setOnClickListener {
+        btnSaveChanges.onSlideCompleteListener = object : SlideToActView.OnSlideCompleteListener {
+            override fun onSlideComplete(view: SlideToActView) {
+                btnSaveChanges.resetSlider()
+            }
         }
     }
 }

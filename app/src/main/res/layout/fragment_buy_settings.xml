@@ -47,22 +47,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountInINR" />
 
-    <com.google.android.material.button.MaterialButton
+    <com.ncorti.slidetoact.SlideToActView
         android:id="@+id/btnSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:backgroundTint="@color/colorAccent"
-        android:textStyle="bold"
-        app:cornerRadius="5dp"
-        app:strokeColor="@color/colorOrange"
         android:textSize="15sp"
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:text="@string/save_changes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weeklyMonthlySpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/weeklyMonthlySpinner"
+        app:text="@string/save_changes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

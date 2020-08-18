@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.androdevlinux.percy.stackingsats.R
 import com.androdevlinux.percy.stackingsats.base.BaseFragment
 import com.androdevlinux.percy.stackingsats.utils.AppPreferenceManager
+import com.ncorti.slidetoact.SlideToActView
 import kotlinx.android.synthetic.main.fragment_payment_methods.*
 
 class PaymentMethodsFragment : BaseFragment() {
@@ -41,17 +42,21 @@ class PaymentMethodsFragment : BaseFragment() {
             }
         }
 
-        btnSaveChangesSettings.setOnClickListener {
-            when {
-                onlinePaymentMethodsSpinner.selectedItem.toString() == "Google Pay" -> {
-                    appPreferenceManager.setOnlinePaymentMethodId(158)
+        btnSaveChanges.onSlideCompleteListener = object : SlideToActView.OnSlideCompleteListener {
+            override fun onSlideComplete(view: SlideToActView) {
+                when {
+                    onlinePaymentMethodsSpinner.selectedItem.toString() == "Google Pay" -> {
+                        appPreferenceManager.setOnlinePaymentMethodId(158)
+                    }
+                    onlinePaymentMethodsSpinner.selectedItem.toString() == "Paytm" -> {
+                        appPreferenceManager.setOnlinePaymentMethodId(718)
+                    }
+                    onlinePaymentMethodsSpinner.selectedItem.toString() == "UPI Payments" -> {
+                        appPreferenceManager.setOnlinePaymentMethodId(126)
+                    }
                 }
-                onlinePaymentMethodsSpinner.selectedItem.toString() == "Paytm" -> {
-                    appPreferenceManager.setOnlinePaymentMethodId(718)
-                }
-                onlinePaymentMethodsSpinner.selectedItem.toString() == "UPI Payments" -> {
-                    appPreferenceManager.setOnlinePaymentMethodId(126)
-                }
+                showToastySuccess("Changes Updated In System")
+                btnSaveChanges.resetSlider()
             }
         }
     }

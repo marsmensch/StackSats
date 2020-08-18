@@ -1,14 +1,10 @@
 package com.androdevlinux.percy.stackingsats.api
 
-import com.androdevlinux.percy.stackingsats.pojo.exchange.ExchangeRateProvidersResponseBean
 import com.androdevlinux.percy.stackingsats.pojo.notifications.NotificationsResponseBean
 import com.androdevlinux.percy.stackingsats.pojo.offers.post.CreateOfferBodyBean
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface HodlHodlApiEndPoints {
     @POST("api/v1/offers")
@@ -17,18 +13,27 @@ interface HodlHodlApiEndPoints {
         @Body createOfferBodyBean: CreateOfferBodyBean
     ): Call<ResponseBody>
 
-/*    @GET("api/v1/payment_methods?filters[country]=India")
-    fun listPaymentMethods(
-        @Header("Authorization") token: String
-    ): Call<ResponseBody>*/
-
     @POST("api/v1/notifications/read")
     fun getNotifications(
         @Header("Authorization") token: String
     ): Call<NotificationsResponseBean>
 
-    @GET("api/v1/exchange_rate_providers")
-    fun listExchanges(
+    @POST("/api/v1/contracts/{id}/confirm/")
+    fun confirmEscrowValidity(
+        @Path(
+            value = "id",
+            encoded = true
+        ) contractId: String?,
         @Header("Authorization") token: String
-    ): Call<ExchangeRateProvidersResponseBean>
+    ): Call<ResponseBody?>
+
+    @GET("/api/v1/contracts/my?filters[status]=pending")
+    fun listingPendingContracts(
+        @Header("Authorization") token: String
+    ): Call<ResponseBody?>?
+
+    @GET("/api/v1/contracts/my?filters[status]=in_progress")
+    fun listingInProgressContracts(
+        @Header("Authorization") token: String
+    ): Call<ResponseBody?>?
 }
