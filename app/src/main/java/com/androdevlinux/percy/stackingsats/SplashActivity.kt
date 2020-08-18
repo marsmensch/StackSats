@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -29,14 +28,14 @@ class SplashActivity: AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        // Sample usage
+
         tvMessage.text =
             Spanly()
                 .append(
-                    "Stacking Sats",
-                    font(Typeface.DEFAULT_BOLD),
-                    size(5f),
-                    clickable(View.OnClickListener {
+                    "Stack Sats",
+                    font(Typeface.SANS_SERIF),
+                    size(2.5f),
+                    clickable({
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }),

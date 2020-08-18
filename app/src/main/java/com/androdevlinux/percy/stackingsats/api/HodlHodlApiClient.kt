@@ -3,7 +3,6 @@ package com.androdevlinux.percy.stackingsats.api
 import android.content.Context
 import com.androdevlinux.percy.stackingsats.BuildConfig
 import com.google.gson.GsonBuilder
-import crypto.delta.exchange.openexchange.api.NetworkConnectionInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
