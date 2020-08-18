@@ -65,7 +65,7 @@ class ListInProgressContractWorker(context: Context, workerParams: WorkerParamet
                                             paymentMethodInstructionsType
                                         )
                                     NotificationHelper(applicationContext).createNotification(
-                                        "Pay at " + paymentMethodInstructionsTypeResponse.paymentMethodInstruction.name,
+                                        "Pay at " + paymentMethodInstructionsTypeResponse!!.paymentMethodInstructions!!.first().name!!,
                                         responseList.contracts!!.first().paymentMethodInstruction!!.details!!,
                                         "",
                                         "stack_payment"
