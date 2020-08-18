@@ -1,9 +1,11 @@
 package com.androdevlinux.percy.stackingsats
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -15,11 +17,15 @@ import com.androdevlinux.percy.stackingsats.services.CreateOfferWorker
 import com.androdevlinux.percy.stackingsats.services.ListingInProgressContractTimer
 import com.androdevlinux.percy.stackingsats.services.NotificationsTimerTask
 import com.google.android.material.navigation.NavigationView
+import es.dmoral.toasty.Toasty
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private var timer = Timer()
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +39,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_buy, R.id.nav_api_key, R.id.nav_wallet, R.id.nav_payment_methods), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_buy, R.id.nav_api_key, R.id.nav_wallet, R.id.nav_payment_methods
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -59,5 +68,28 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        if (navHostFragment?.childFragmentManager?.backStackEntryCount!! > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            if (navHostFragment.childFragmentManager.backStackEntryCount == 0) {
+                if (doubleBackToExitPressedOnce) {
+                    finish()
+                } else {
+                    Toasty.warning(this, "Press BACK again to EXIT!", Toast.LENGTH_SHORT, true)
+                        .show()
+                }
+                doubleBackToExitPressedOnce = true
+                lifecycleScope.launch {
+                    delay(2000.toLong())
+                    doubleBackToExitPressedOnce = false
+                }
+            } else {
+                super.onBackPressed()
+            }
+        }
     }
 }

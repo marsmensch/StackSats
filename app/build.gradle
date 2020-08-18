@@ -112,9 +112,7 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:2.4.0"
 
     //custom toast msg
-    implementation 'com.github.GrenderG:Toasty:1.4.2'
-
-    implementation 'com.github.joshuadeguzman:Spanly:-SNAPSHOT'
+    implementation 'com.github.GrenderG:Toasty:1.5.0'
 
     implementation "com.ncorti:slidetoact:0.9.0"
 

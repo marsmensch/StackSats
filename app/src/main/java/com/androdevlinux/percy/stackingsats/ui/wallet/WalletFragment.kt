@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.androdevlinux.percy.stackingsats.R
 import com.androdevlinux.percy.stackingsats.base.BaseFragment
 import com.androdevlinux.percy.stackingsats.utils.AppPreferenceManager
@@ -17,6 +18,12 @@ class WalletFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         appPreferenceManager = AppPreferenceManager(requireContext())
+        (context as AppCompatActivity).supportActionBar!!.title = requireContext().getString(R.string.title_wallet)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (context as AppCompatActivity).supportActionBar!!.title = requireContext().getString(R.string.title_wallet)
     }
 
     override fun onCreateView(

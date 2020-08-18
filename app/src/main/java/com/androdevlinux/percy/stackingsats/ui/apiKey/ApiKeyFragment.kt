@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.androdevlinux.percy.stackingsats.R
@@ -19,6 +20,12 @@ class ApiKeyFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
         apiKeyViewModel =
             ViewModelProvider(this).get(ApiKeyViewModel::class.java)
+        (context as AppCompatActivity).supportActionBar!!.title = requireContext().getString(R.string.title_api_key)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (context as AppCompatActivity).supportActionBar!!.title = requireContext().getString(R.string.title_api_key)
     }
 
     override fun onCreateView(
