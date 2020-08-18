@@ -37,12 +37,9 @@ interface HodlHodlApiEndPoints {
         @Header("Authorization") token: String
     ): Call<ResponseBody>
 
-    @GET("/api/v1/payment_method_instructions/{id}")
+    @GET("/api/v1/payment_method_instructions")
     fun paymentMethodInstructions(
-        @Path(
-            value = "id",
-            encoded = true
-        ) methodId: String?,
+        @Query(value = "id", encoded = true) id: String?,
         @Header("Authorization") token: String
     ): Call<ResponseBody>
 }
