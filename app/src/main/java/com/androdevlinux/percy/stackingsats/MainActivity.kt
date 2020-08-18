@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.androdevlinux.percy.stackingsats.services.CreateOfferWorker
+import com.androdevlinux.percy.stackingsats.services.ListingInProgressContractTimer
 import com.androdevlinux.percy.stackingsats.services.NotificationsTimerTask
 import com.google.android.material.navigation.NavigationView
 import java.util.*
@@ -50,7 +51,9 @@ class MainActivity : AppCompatActivity() {
             .enqueue(myWork)
 
         val myNotificationsTimerTaskTask = NotificationsTimerTask(this@MainActivity)
+        val listingInProgressContractTimerTask = ListingInProgressContractTimer(this@MainActivity)
         timer.schedule(myNotificationsTimerTaskTask, firstStart.toLong(), period.toLong()) //the time specified in millisecond
+        timer.schedule(listingInProgressContractTimerTask, firstStart.toLong(), period.toLong())
     }
 
     override fun onSupportNavigateUp(): Boolean {

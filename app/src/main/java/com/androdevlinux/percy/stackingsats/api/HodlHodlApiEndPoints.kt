@@ -25,15 +25,24 @@ interface HodlHodlApiEndPoints {
             encoded = true
         ) contractId: String?,
         @Header("Authorization") token: String
-    ): Call<ResponseBody?>
+    ): Call<ResponseBody>
 
     @GET("/api/v1/contracts/my?filters[status]=pending")
     fun listingPendingContracts(
         @Header("Authorization") token: String
-    ): Call<ResponseBody?>?
+    ): Call<ResponseBody>
 
     @GET("/api/v1/contracts/my?filters[status]=in_progress")
     fun listingInProgressContracts(
         @Header("Authorization") token: String
-    ): Call<ResponseBody?>?
+    ): Call<ResponseBody>
+
+    @GET("/api/v1/payment_method_instructions/{id}")
+    fun paymentMethodInstructions(
+        @Path(
+            value = "id",
+            encoded = true
+        ) methodId: String?,
+        @Header("Authorization") token: String
+    ): Call<ResponseBody>
 }

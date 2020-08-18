@@ -47,10 +47,10 @@ class NotificationsWorker(context: Context, workerParams: WorkerParameters) :
                         if (notification.title!!.matches("New contract to buy.*".toRegex())) {
                             val contractId = notification.link!!.replace("https://hhtestnet.com/contracts/", "")
                             val confirm = service.confirmEscrowValidity(contractId, "Bearer " + appPreferenceManager.authorizationToken)
-                            confirm.enqueue(object : retrofit2.Callback<ResponseBody?> {
+                            confirm.enqueue(object : retrofit2.Callback<ResponseBody> {
                                 override fun onResponse(
-                                    call: Call<ResponseBody?>,
-                                    response: Response<ResponseBody?>
+                                    call: Call<ResponseBody>,
+                                    response: Response<ResponseBody>
                                 ) {
                                     if (response.code() == 200) {
 
@@ -58,7 +58,7 @@ class NotificationsWorker(context: Context, workerParams: WorkerParameters) :
                                 }
 
                                 override fun onFailure(
-                                    call: Call<ResponseBody?>,
+                                    call: Call<ResponseBody>,
                                     t: Throwable
                                 ) {
                                     t.printStackTrace()
