@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import com.androdevlinux.percy.stackingsats.database.RoomDatabaseHelper
 import com.androdevlinux.percy.stackingsats.services.CreateOfferWorker
 import com.androdevlinux.percy.stackingsats.services.ListingInProgressContractTimer
 import com.androdevlinux.percy.stackingsats.services.NotificationsTimerTask
@@ -26,6 +27,14 @@ class MainActivity : AppCompatActivity() {
     private var timer = Timer()
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var doubleBackToExitPressedOnce = false
+
+    companion object {
+        var myDatabase: RoomDatabaseHelper? = null
+    }
+
+    fun getMyDatabase(): RoomDatabaseHelper? {
+        return myDatabase
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +72,8 @@ class MainActivity : AppCompatActivity() {
         val listingInProgressContractTimerTask = ListingInProgressContractTimer(this@MainActivity)
         timer.schedule(myNotificationsTimerTaskTask, firstStart.toLong(), period.toLong()) //the time specified in millisecond
         timer.schedule(listingInProgressContractTimerTask, firstStart.toLong(), period.toLong())
+
+        myDatabase = RoomDatabaseHelper.getInstance(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
