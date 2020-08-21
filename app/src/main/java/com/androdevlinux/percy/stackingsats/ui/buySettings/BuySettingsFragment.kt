@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.androdevlinux.percy.stackingsats.R
 import com.androdevlinux.percy.stackingsats.base.BaseFragment
 import com.ncorti.slidetoact.SlideToActView
@@ -41,7 +41,7 @@ class BuySettingsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buySettingsViewModel.amountInInrText.observe(viewLifecycleOwner, Observer {
+        buySettingsViewModel.amountInInrText.observe(viewLifecycleOwner, {
             edtAmountInINR.setText(it)
         })
 
@@ -50,11 +50,17 @@ class BuySettingsFragment : BaseFragment() {
                 ignoreCase = true
             )) {
             weeklyMonthlySpinner.setSelection(0)
+            currentConfig.text = getString(R.string.weekly)
         } else if (buySettingsViewModel.appPreferenceManager.weeklyOrMonthly.equals(
                 "Monthly",
                 ignoreCase = true
             )) {
             weeklyMonthlySpinner.setSelection(1)
+            currentConfig.text = getString(R.string.monthly)
+        }
+
+        historyCheckTxt.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.nav_buy_order_history)
         }
 
         btnSaveChanges.onSlideCompleteListener = object : OnSlideCompleteListener {
@@ -69,9 +75,11 @@ class BuySettingsFragment : BaseFragment() {
                 when {
                     weeklyMonthlySpinner.selectedItem.toString() == "Weekly" -> {
                         buySettingsViewModel.appPreferenceManager.setWeeklyOrMonthly("Weekly")
+                        currentConfig.text = getString(R.string.weekly)
                     }
                     weeklyMonthlySpinner.selectedItem.toString() == "Monthly" -> {
                         buySettingsViewModel.appPreferenceManager.setWeeklyOrMonthly("Monthly")
+                        currentConfig.text = getString(R.string.monthly)
                     }
                 }
                 btnSaveChanges.resetSlider()

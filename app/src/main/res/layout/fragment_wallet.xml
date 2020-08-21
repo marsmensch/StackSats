@@ -12,8 +12,8 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
-        android:background="#002f5b"
-        android:backgroundTint="#002f5b"
+        android:background="@color/colorBlue"
+        android:backgroundTint="@color/colorBlueDark"
         card_view:cardCornerRadius="5dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat

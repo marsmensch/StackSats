@@ -22,6 +22,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtAmountInINR"
+            android:textCursorDrawable="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"/>
@@ -41,10 +42,56 @@
         android:entries="@array/weeklyOrMonthly"
         android:textColor="@color/colorPrimaryDark"
         android:text="@string/for_experienced_user_only"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveChanges"
+        app:layout_constraintBottom_toTopOf="@+id/currentConfigLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountInINR" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/currentConfigLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/historyCheckTxt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weeklyMonthlySpinner">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:gravity="start|center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="@string/current_settings" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/currentConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:gravity="start|center"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/historyCheckTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:gravity="start|center"
+        android:textAlignment="center"
+        android:textColor="@color/colorOrange"
+        android:text="@string/check_history"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveChanges"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentConfigLayout"/>
 
     <com.ncorti.slidetoact.SlideToActView
         android:id="@+id/btnSaveChanges"
@@ -55,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weeklyMonthlySpinner"
+        app:layout_constraintTop_toBottomOf="@+id/historyCheckTxt"
         app:text="@string/save_changes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

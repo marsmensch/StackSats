@@ -6,6 +6,11 @@
     <group android:checkableBehavior="none">
 
         <item
+            android:id="@+id/nav_buy_order_history"
+            android:icon="@drawable/buy_order_history_icon"
+            android:title="@string/title_buy_order_history" />
+
+        <item
             android:id="@+id/nav_buy"
             android:icon="@drawable/buy_settings_icon"
             android:title="@string/title_buy" />
@@ -16,6 +21,11 @@
             android:title="@string/title_api_key" />
 
         <item
+            android:id="@+id/nav_security"
+            android:icon="@drawable/security_icon"
+            android:title="@string/title_security" />
+
+        <item
             android:id="@+id/nav_wallet"
             android:icon="@drawable/wallet_icon"
             android:title="@string/title_wallet" />
@@ -24,5 +34,10 @@
             android:id="@+id/nav_payment_methods"
             android:icon="@drawable/payment_method_icon"
             android:title="@string/title_payment_methods" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/notification_icon"
+            android:title="@string/title_notifications" />
     </group>
 </menu>

@@ -27,8 +27,8 @@ interface HodlHodlApiEndPoints {
         @Header("Authorization") token: String
     ): Call<ResponseBody>
 
-    @GET("/api/v1/contracts/my?filters[status]=pending")
-    fun listingPendingContracts(
+    @GET("/api/v1/contracts/my?filters[side]=buy")
+    fun listingAllBuyContracts(
         @Header("Authorization") token: String
     ): Call<ResponseBody>
 

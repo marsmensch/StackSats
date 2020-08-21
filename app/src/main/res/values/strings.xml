@@ -32,11 +32,35 @@
     <string name="next_offer_creating_date">Next offer creating date :</string>
     <string name="version">"Version : "</string>
     <string name="nav_header_desc">app logo</string>
+    <string name="title_buy_order_history">Buy Order History</string>
     <string name="title_buy">Buy Settings</string>
     <string name="title_api_key">API Key</string>
     <string name="title_wallet">Wallet</string>
     <string name="title_payment_methods">Payment Methods</string>
     <string name="bitcoin_address">Bitcoin Address</string>
+    <string name="title_security">Security</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="pin_zero">0</string>
+    <string name="pin_one">1</string>
+    <string name="pin_two">2</string>
+    <string name="pin_three">3</string>
+    <string name="pin_four">4</string>
+    <string name="pin_five">5</string>
+    <string name="pin_six">6</string>
+    <string name="pin_seven">7</string>
+    <string name="pin_eight">8</string>
+    <string name="pin_nine">9</string>
+    <string name="pin_ten">10</string>
+    <string name="pin_enter_pin_prompt">Enter Pin</string>
+    <string name="pin_cancel">Cancel</string>
+    <string name="error_pin_blank_pin">Pin cannot be blank</string>
+    <string name="error_pin_invalid_pin_length">Pin cannot be less than %d</string>
+    <string name="current_settings">Current settings :</string>
+    <string name="monthly">Monthly</string>
+    <string name="weekly">Weekly</string>
+    <string name="check_history">For more details check history</string>
+
     <string-array name="weeklyOrMonthly">
         <item>Weekly</item>
         <item>Monthly</item>

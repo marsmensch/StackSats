@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_buy">
+    app:startDestination="@+id/nav_buy_order_history">
+
+    <fragment
+        android:id="@+id/nav_buy_order_history"
+        android:name="com.androdevlinux.percy.stackingsats.ui.buyHistory.BuyOrderHistoryFragment"
+        android:label="@string/title_buy_order_history"
+        tools:layout="@layout/fragment_buy_order_history" />
 
     <fragment
         android:id="@+id/nav_buy"
@@ -18,6 +24,12 @@
         tools:layout="@layout/fragment_api_key" />
 
     <fragment
+        android:id="@+id/nav_security"
+        android:name="com.androdevlinux.percy.stackingsats.ui.security.SecurityFragment"
+        android:label="@string/title_security"
+        tools:layout="@layout/fragment_security" />
+
+    <fragment
         android:id="@+id/nav_wallet"
         android:name="com.androdevlinux.percy.stackingsats.ui.wallet.WalletFragment"
         android:label="@string/title_wallet"
@@ -28,4 +40,10 @@
         android:name="com.androdevlinux.percy.stackingsats.ui.paymentMethods.PaymentMethodsFragment"
         android:label="@string/title_payment_methods"
         tools:layout="@layout/fragment_payment_methods" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.androdevlinux.percy.stackingsats.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
