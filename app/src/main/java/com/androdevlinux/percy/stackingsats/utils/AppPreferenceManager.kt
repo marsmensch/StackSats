@@ -15,7 +15,7 @@ class AppPreferenceManager(private val context: Context) {
     val authorizationToken: String?
         get() = prefs.getString(
             context.resources.getString(R.string.authorization_token_preference),
-            "PcfvGrkOEezeBxXRshEGwRNeRCJj6sHpzWyGMokL4DhBSNxkMVeouEEcQUDImG3gFgljieA2hp97xJCj"
+            ""
         )
 
     fun setAuthorizationToken(value: String?) {
